@@ -1,8 +1,9 @@
 #estáfuncionando
+#Versão em Python 3
 #Fonte: https://gist.github.com/nicolehe/d02d1801841252fd16eb47ba999c2cf0
 
 import numpy as np
-#test script for implementing perceptron
+#script de teste para implementar perceptron
 N = 4
 complete = False
 
@@ -31,11 +32,11 @@ def isTrue(res):
 
 def train(test, weight, index):
     if index < 2:
-        print ("calculate new weight for class 1")
+        print ("calcule o novo peso para a classe 1")
         weight_new = weight + 0.5 * test
         print (weight_new)
     else:
-        print ("calculate new weight for class 2")
+        print ("calcule o novo peso para a classe 2")
         weight_new = weight - 0.5 * test
         print (weight_new)
     return weight_new
@@ -53,7 +54,7 @@ while err >= 0:
     if err != -1:
         weight = train(test[err], weight, err)
 
-print ("result is")
+print ("O resultado é")
 print (array_after)
 
 print (res)
