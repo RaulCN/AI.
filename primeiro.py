@@ -1,3 +1,4 @@
+#Funciona?
 from numpy import *
  
 class FeedForwardNetwork:
