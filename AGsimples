@@ -130,33 +130,31 @@ def mutate(dna):
 
 def crossover(dna1, dna2):
   """
-  Slices both dna1 and dna2 into two parts at a random index within their
-  length and merges them. Both keep their initial sublist up to the crossover
-  index, but their ends are swapped.
+Divide ambos dna1 e dna2 em duas parte em um index aleatório com os comprimentos deles e mistura-os.
+Ambos mantém sua sublista Inicial para o index cruzado, mas seus fins são trocados.
   """
   pos = int(random.random()*DNA_SIZE)
   return (dna1[:pos]+dna2[pos:], dna2[:pos]+dna1[pos:])
 
 #
 # Main driver
-# Generate a population and simulate GENERATIONS generations.
+# Gera uma população e simula gerações GENERATIONS.
 #
 
 if __name__ == "__main__":
-  # Generate initial population. This will create a list of POP_SIZE strings,
-  # each initialized to a sequence of random characters.
-  population = random_population()
+  # _Gera população inicial. Isso irá criar uma lista de strings POP_SIZE.
+  #Cada um inicializado para uma sequência de caracteres aleatórios.
 
-  # Simulate all of the generations.
+  
+  #Simule todas as gerações para geração em alcance
   for generation in range(GENERATIONS):
     print ("Geração %s... Amostra aleatória: '%s'" % (generation, population[0]))
     weighted_population = []
 
-    # Add individuals and their respective fitness levels to the weighted
-    # population list. This will be used to pull out individuals via certain
-    # probabilities during the selection phase. Then, reset the population list
-    # so we can repopulate it after selection.
-    for individual in population:
+   #Adicione individuais e seus respectivos níveis adequados para a lista populacional pesada. 
+   #Isso será usado para puxar os indivíduos via certas probabilidades durante a fase de seleção.  
+   #Então, resete a lista populacional para podermos repopular após a seleção.
+ for individual in population:
       fitness_val = fitness(individual)
 
       # Generate the (individual,fitness) pair, taking in account whether or
