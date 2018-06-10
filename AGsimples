@@ -3,10 +3,8 @@
 #fonte https://gist.github.com/josephmisiti/940cee03c97f031188ba7eac74d03a4f
 
 """
-helloevolve.py aimplements a genetic algorithm that starts with a base
-population of randomly generated strings, iterates over a certain number of
-generations while implementing 'natural selection', and prints out the most fit
-string.
+helloevolve.py (nome do arquivo original)implementa um algoritmo genético que começa com a população bade de cadeia de caracteres (string) geradas aleatoriamente ,
+interage através de um certo número de gerações enquanto implementa "seleção natural", e imprimi a corda mais adequada
 
 The parameters of the simulation can be changed by modifying one of the many
 global variables. To change the "most fit" string, modify OPTIMAL. POP_SIZE
@@ -14,7 +12,13 @@ controls the size of each generation, and GENERATIONS is the amount of
 generations that the simulation will loop through before returning the fittest
 string.
 
+Os parâmetros da simulação podem ser mudados modificando uma das muitas variáveis globais.
+Para mudar a "mais adequada" string, modifique OPTIMAL. POP_SIZE controla o tamanho de cada geração,
+e GENERATIONS é a quantidade de gerações que a simulação irá rodar antes de retornar a string adequada.
+
 This program subject to the terms of the BSD license listed below.
+
+
 
 ---
 
@@ -43,7 +47,8 @@ import random
 
 #
 # Variáveis globais
-# Setup optimal string and GA input variables.
+# Configuração ideal da string e variáveis de entrada do AG.
+
 #
 
 OPTIMAL     = "Olá, Mundo"
@@ -54,14 +59,15 @@ GENERATIONS = 8000
 
 #
 # Funções auxiliares
-# These are used as support, but aren't direct GA-specific functions.
+# São usadas como suporte, mas não são diretamente funções específicas do AG.
+
 #
 
 def weighted_choice(items):
-  """
-  Chooses a random element from items, where items is a list of tuples in
-  the form (item, weight). weight determines the probability of choosing its
-  respective item. Note: this function is borrowed from ActiveState Recipes.
+  """Escolhe um elemento aleatório dos itens, onde itens é uma lista de tuplas na forma (item, peso). 
+  Peso determina a probabilidade de escolher seu respectivo item.
+  Nota: essa função foi pega da ActiveState Recipes. 
+
   """
   weight_total = sum((item[1] for item in items))
   n = random.uniform(0, weight_total)
@@ -73,15 +79,16 @@ def weighted_choice(items):
 
 def random_char():
   """
-  Return a random character between ASCII 32 and 126 (i.e. spaces, symbols,
-  letters, and digits). All characters returned will be nicely printable.
+  Retorna um carácter aleatório entre ASCII 32 e 126 (i.e. espaços, símbolos, letras e dígitos).
+  Todos os caracteres retornados serão imprimiveis. 
+
   """
   return chr(int(random.randrange(32, 126, 1)))
 
 def random_population():
-  """
-  Return a list of POP_SIZE individuals, each randomly generated via iterating
-  DNA_SIZE times to generate a string of random characters with random_char().
+
+  """_Retorna uma lista de individuais do POP_SIZE, cada um gerado aleatoriamente via repetição.
+ DNA_SIZE  organiza para gerar uma string de caracteres aleatórios com random_char()._
   """
   pop = []
   for i in range(POP_SIZE):
@@ -92,15 +99,15 @@ def random_population():
   return pop
 
 #
-# GA functions
+# AG funções
 # These make up the bulk of the actual GA algorithm.
 #
 
 def fitness(dna):
   """
-  For each gene in the DNA, this function calculates the difference between
-  it and the character in the same position in the OPTIMAL string. These values
-  are summed and then returned.
+  Para cada gene no DNA, essa função calcula a diferença entre isso e o caracter na mesma posição na string OPTIMAL. 
+  Esses valores são somados e retornados.
+
   """
   fitness = 0
   for c in range(DNA_SIZE):
@@ -108,9 +115,8 @@ def fitness(dna):
   return fitness
 
 def mutate(dna):
-  """
-  For each gene in the DNA, there is a 1/mutation_chance chance that it will be
-  switched out with a random character. This ensures diversity in the
+  """Para cada gene no DNA, há um 1/mutation_chance chance de que isso será trocado com um carácter aleatório.
+  Isso garante diversidade na população, e garante que é difícil ficar preso em um minima local.
   population, and ensures that is difficult to get stuck in local minima.
   """
   dna_out = ""
