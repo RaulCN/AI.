@@ -8,7 +8,7 @@ class Train:
 		self.threshold = 0
 		self.weights = [random.randrange(0,10),random.randrange(0,10)]
 		self.bias = random.randrange(-1,1)
-		self.learningRate = 0.5
+		self.learningRate = 0.01 #Sugestão deixar 0.1 para não ser nem muito rápido nem muito lento
 	#true if fired state == answers in training set
 		self.correct = [False,False,False] 
 		self.test = [0,1]
