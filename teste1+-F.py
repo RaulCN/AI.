@@ -1,5 +1,5 @@
 #Inspiração https://gist.github.com/e135754/163ee64d915a1f7ada6271043f48011d
-#a plotagem ainda não está funcionando
+
 import numpy as np
 import matplotlib.pyplot as plt
 class Perceptron:
@@ -85,5 +85,5 @@ plt.ylim([-0.1,1.1])
 plt.plot(x[:-1],y[:-1],'o',markersize=10)
 plt.plot(x[-1],y[-1],'ro',markersize=10)
 plt.plot(x_fig,y_fig)
-#plt.show()
+plt.show()
 plt.savefig('figure_1.png')
