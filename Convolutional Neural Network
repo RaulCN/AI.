@@ -106,8 +106,8 @@ print("----------------")
 print("Custo antes do treino: ",cost_before_train)
 print("Custo depois do treino: ",cost_after_train)
 print("----------------")
-print("Start Out put : ", start_out)
-print("Final Out put : ", final_out)
+print("Iniciar saída : ", start_out)
+print("Saída Final : ", final_out)
 print("Ground Truth  : ", Y.T)
 
 
