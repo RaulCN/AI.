@@ -2,10 +2,10 @@
 #https://gist.githubusercontent.com/alexland/0cb8a7e81705e6cb6c14/raw/d12e0592936d6bbb5413de7982b416c1b747e9c7/softmax-mlp.py
 
 '''
-these 2 functions assume this sort of MLP architecture:
-  (i) a classification problem modeled w/ softmax activation function
-  (ii) encode the output layer w/ 1-of-N 
-    > so for raw data like this:
+estas 2 funções assumem este tipo de arquitetura MLP:
+  (i) um problema de classificação modelado com função de ativação softmax
+  (ii) codifique a camada de saída w/ 1-of-N 
+    > Então, para dados brutos como este:
         .3, .2, .6, .1, 'class I'
         .6, .1, .8, .4, 'class II'
         .5, .2, .7, .3, 'class III'
@@ -15,7 +15,7 @@ these 2 functions assume this sort of MLP architecture:
         .6, .1, .8, .4, 0, 1, 0
         .5, .2, .7, .3, 0, 0, 1
         
-    softmax requires
+    O softmax requer
       > MLP network to have 3 neurons in the output layer, and
       > the sum of the output layer equals 1.0;
       
@@ -75,8 +75,8 @@ def cee(tv, pv):
   
 if __name__ == '__main__':
   '''
-  running this script from the command line w/ the '-v' flag 
-  will run the doctests & show the output in the terminal
+  rexecutando este script a partir da linha de comando w/ the '-v' flag 
+ irá executar os doctests e mostrar a saída no terminal
   '''
   import doctest
   doctest.testmod()
